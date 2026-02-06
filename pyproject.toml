@@ -1,11 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "hexlet-code"
+name = "hexlet-code"  # Важно: должно совпадать с именем папки пакета
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.14"
 dependencies = [
-    "flask>=3.1.2",
-    "gunicorn>=25.0.2",
-    "python-dotenv>=1.2.1",
+    "Flask",
+    "gunicorn",
+    "python-dotenv"
 ]
+
+[tool.render]
+start-command = "gunicorn -w 4 -b 0.0.0.0:$PORT page_analyzer:app"
